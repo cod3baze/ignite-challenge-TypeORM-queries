@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  postgres_service:
+    image: postgres:alpine
+    container_name: challenge_ignite
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=ignite
+      - POSTGRES_DB=challenge
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
